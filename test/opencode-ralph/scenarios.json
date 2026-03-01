@@ -1,0 +1,16 @@
+{
+    "default": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "opencode-ralph": {}
+        }
+    },
+    "install_dir_custom": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "opencode-ralph": {
+                "installDir": "/opt/ralph/bin"
+            }
+        }
+    }
+}
