@@ -12,5 +12,13 @@
                 "installDir": "/opt/ralph/bin"
             }
         }
+    },
+    "legacy_version_pinned": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "opencode-ralph": {
+                "version": "v1.0.1"
+            }
+        }
     }
 }

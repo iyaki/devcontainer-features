@@ -3,7 +3,7 @@ set -e
 
 echo "Activating feature 'opencode-ralph'"
 
-VERSION=${VERSION:-main}
+VERSION=${VERSION:-latest}
 INSTALL_DIR=${INSTALLDIR:-/usr/local/bin}
 
 ensure_curl() {
@@ -31,7 +31,37 @@ ensure_curl
 
 mkdir -p "$INSTALL_DIR"
 
-RALPH_URL="https://raw.githubusercontent.com/iyaki/ralph/${VERSION}/ralph.sh"
+resolve_version() {
+	if [ "$VERSION" = "latest" ]; then
+		echo "Resolving latest release version..." >&2
+		VERSION=$(curl -fsSL "https://api.github.com/repos/iyaki/ralph/releases/latest" \
+			| grep '"tag_name"' \
+			| sed 's/.*"tag_name": *"\([^"]*\)".*/\1/')
+		if [ -z "$VERSION" ]; then
+			echo "Failed to resolve latest release version." >&2
+			exit 1
+		fi
+		echo "Resolved latest version: $VERSION" >&2
+	fi
+}
+
+resolve_version
+
+
+EXECUTABLE_NAME="ralph.sh"
+case "$VERSION" in
+	latest)
+		RALPH_URL="https://github.com/iyaki/ralph/releases/latest/download/$EXECUTABLE_NAME"
+		;;
+	v[0-9]*)
+		RALPH_URL="https://github.com/iyaki/ralph/releases/download/${VERSION}/$EXECUTABLE_NAME"
+		;;
+	*)
+		echo "Unsupported version '$VERSION'. Use 'latest' or a release tag such as 'v1.0.1'." >&2
+		exit 1
+		;;
+esac
+
 TMP_FILE=$(mktemp)
 
 echo "Downloading ralph script from $RALPH_URL"

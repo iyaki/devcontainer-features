@@ -1,13 +1,13 @@
 {
     "name": "Ralph Agentic Loop runner for OpenCode",
     "id": "opencode-ralph",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "description": "POSIX-compliant AI Agentic Loop shell runner aimed for spec-driven development workflows.",
     "options": {
         "version": {
             "type": "string",
-            "default": "main",
-            "description": "Git ref (tag, branch, or commit) for the ralph.sh script."
+            "default": "v1.0.1",
+            "description": "Release version to install. Use 'latest' or a release tag such as 'v1.0.0'. By now default is v1.0.1 for backward compatibility."
         },
         "installDir": {
             "type": "string",
@@ -15,5 +15,7 @@
             "description": "Directory to install the ralph executable."
         }
     },
-    "installsAfter": []
+    "installsAfter": [
+        "ghcr.io/devcontainers-extra/features/opencode"
+    ]
 }

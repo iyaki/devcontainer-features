@@ -15,7 +15,7 @@ POSIX-compliant AI Agentic Loop shell runner aimed for spec-driven development w
 
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
-| version | Git ref (tag, branch, or commit) for the ralph.sh script. | string | main |
+| version | Release version to install. Use `latest` or a release tag such as `v1.0.1`. | string | v1.0.1 |
 | installDir | Directory to install the ralph executable. | string | /usr/local/bin |
 
 # Additional Notes
@@ -33,7 +33,7 @@ For opencode installation, see [OpenCode](https://opencode.ai/) or use the [devc
 
 This feature installs the `ralph` script to `/usr/local/bin/ralph` by default, so it can be run with `ralph` from the terminal.
 
-To pin the script to a tag or commit, set the `version` option to the desired Git ref.
+To pin the script to a specific release, set the `version` option to a release tag such as `v1.0.1`. To always install the newest published release, use `latest`.
 
 For example usage of the `ralph` script and proper documentation, see the [iyaki/ralph repository](https://github.com/iyaki/ralph).
 
