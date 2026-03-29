@@ -41,7 +41,7 @@ Installs `lefthook` from GitHub Releases.
 {
     "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
     "features": {
-        "ghcr.io/iyaki/devcontainer-features/lefthook:1": {
+        "ghcr.io/iyaki/devcontainer-features/lefthook:2": {
             "version": "latest"
         }
     }
