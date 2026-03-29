@@ -9,7 +9,11 @@ set -e
 # `ensure_nanolayer` is a bash function that will find any existing nanolayer installations,
 # and if missing - will download a temporary copy that automatically get deleted at the end
 # of the script
-ensure_nanolayer nanolayer_location "v0.5.6"
+ensure_nanolayer NANOLAYER_LOCATION "v0.5.6"
+
+# Feature options are surfaced as env vars by devcontainer CLI (e.g. installDir -> INSTALLDIR).
+# Keep backward compatibility with INSTALL_DIR if set by callers.
+INSTALL_DIR="${INSTALLDIR:-${INSTALL_DIR:-/usr/local/bin}}"
 
 # map_ralph_asset_regex() {
 #     case "$(uname -m)" in
