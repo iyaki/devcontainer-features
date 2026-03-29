@@ -1,5 +1,5 @@
 
-# Ralph Agentic Loop runner
+# Ralph Agentic Loop runner (ralph)
 
 AI Agentic Loop shell runner aimed for spec-driven development workflows.
 
@@ -15,14 +15,19 @@ AI Agentic Loop shell runner aimed for spec-driven development workflows.
 
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
-| version | Release version to install. Use `latest` or a release tag such as `v2.0.0`. | string | latest |
+| version | Release version to install. Use 'latest' or a release tag such as 'v2.0.0'. | string | latest |
 
+# Additional Notes
 
-This feature installs the `ralph` script to `/usr/local/bin/ralph` by default, so it can be run with `ralph` from the terminal.
+- Ralph CLI repository: [iyaki/ralph](https://github.com/iyaki/ralph)
 
-To pin the script to a specific release, set the `version` option to a release tag such as `v2.0.0`. To always install the newest published release, use `latest` (the default).
+## Usage
 
-For example usage of the `ralph` script and proper documentation, see the [iyaki/ralph repository](https://github.com/iyaki/ralph).
+This feature installs the `ralph` CLI.
+
+To pin the CLI to a specific release, set the `version` option to a release tag such as `v2.0.0`. To always install the newest published release, use `latest`.
+
+For example usage of the `ralph` CLI and proper documentation, see the [iyaki/ralph repository](https://github.com/iyaki/ralph).
 
 
 ---
