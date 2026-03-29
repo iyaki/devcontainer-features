@@ -16,8 +16,11 @@ map_lefthook_asset_regex() {
         x86_64|amd64)
             echo ".*_Linux_x86_64$"
             ;;
-        aarch64|arm64)
-            echo ".*_Linux_(arm64|aarch64)$"
+        aarch64)
+            echo ".*_Linux_aarch64$"
+            ;;
+        arm64)
+            echo ".*_Linux_arm64$"
             ;;
         *)
             echo "Unsupported architecture: $(uname -m)" >&2
