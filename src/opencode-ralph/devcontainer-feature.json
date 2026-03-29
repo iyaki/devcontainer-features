@@ -6,8 +6,8 @@
     "options": {
         "version": {
             "type": "string",
-            "default": "v1.0.1",
-            "description": "Release version to install. Use 'latest' or a release tag such as 'v1.0.0'. By now default is v1.0.1 for backward compatibility."
+            "default": "latest",
+            "description": "Release version to install. Use 'latest' or a release tag such as 'v2.0.0'."
         },
         "installDir": {
             "type": "string",
@@ -16,6 +16,7 @@
         }
     },
     "installsAfter": [
+        "ghcr.io/devcontainers-extra/features/gh-release",
         "ghcr.io/devcontainers-extra/features/opencode"
     ]
 }
