@@ -7,7 +7,7 @@ Fast and powerful Git hooks manager for any type of projects.
 
 ```json
 "features": {
-    "ghcr.io/iyaki/devcontainer-features/lefthook:1": {}
+    "ghcr.io/iyaki/devcontainer-features/lefthook:2": {}
 }
 ```
 
@@ -16,7 +16,6 @@ Fast and powerful Git hooks manager for any type of projects.
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
 | version | Lefthook release version to install (for example: 2.1.3). Use 'latest' for the newest release. | string | latest |
-| installDir | Directory to install the lefthook executable. | string | /usr/local/bin |
 
 # Notes
 
