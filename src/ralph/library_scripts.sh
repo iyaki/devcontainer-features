@@ -95,7 +95,7 @@ clean_download() {
 
 
 ensure_nanolayer() {
-    # Ensure existance of the nanolayer cli program
+    # Ensure existence of the nanolayer cli program
     local variable_name=$1
 
     local required_version=$2
