@@ -1,7 +1,7 @@
 
 # Ralph Agentic Loop runner for OpenCode (opencode-ralph)
 
-POSIX-compliant AI Agentic Loop shell runner aimed for spec-driven development workflows.
+[Dperecated] AI Agentic Loop shell runner aimed for spec-driven development workflows.
 
 ## Example Usage
 
@@ -19,6 +19,8 @@ POSIX-compliant AI Agentic Loop shell runner aimed for spec-driven development w
 | installDir | Directory to install the ralph executable. | string | /usr/local/bin |
 
 # Additional Notes
+
+This feature is deprecated and maintained only for legacy purposes. Consider using the `ralph` Feature instead.
 
 - Ralph CLI repository: [iyaki/ralph](https://github.com/iyaki/ralph)
 
