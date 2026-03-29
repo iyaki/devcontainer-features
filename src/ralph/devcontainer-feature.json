@@ -1,7 +1,7 @@
 {
     "name": "Ralph Agentic Loop runner",
     "id": "ralph",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "AI Agentic Loop shell runner aimed for spec-driven development workflows.",
     "options": {
         "version": {

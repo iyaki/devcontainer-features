@@ -11,9 +11,6 @@ set -e
 # of the script
 ensure_nanolayer NANOLAYER_LOCATION "v0.5.6"
 
-mkdir -p "$INSTALL_DIR"
-
-echo "Installing ralph ${VERSION} using nanolayer"
 "$NANOLAYER_LOCATION" \
     install \
     devcontainer-feature \
