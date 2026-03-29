@@ -4,13 +4,5 @@
         "features": {
             "lefthook": {}
         }
-    },
-    "install_dir_custom": {
-        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
-        "features": {
-            "lefthook": {
-                "installDir": "/opt/lefthook/bin"
-            }
-        }
     }
 }
