@@ -1,0 +1,16 @@
+{
+    "default": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "ralph": {}
+        }
+    },
+    "version_pinned": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "ralph": {
+                "version": "v2.0.0"
+            }
+        }
+    }
+}

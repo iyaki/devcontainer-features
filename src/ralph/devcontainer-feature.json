@@ -1,0 +1,16 @@
+{
+    "name": "Ralph Agentic Loop runner",
+    "id": "ralph",
+    "version": "1.0.0",
+    "description": "AI Agentic Loop shell runner aimed for spec-driven development workflows.",
+    "options": {
+        "version": {
+            "type": "string",
+            "default": "latest",
+            "description": "Release version to install. Use 'latest' or a release tag such as 'v2.0.0'."
+        }
+    },
+    "installsAfter": [
+        "ghcr.io/devcontainers-extra/features/gh-release"
+    ]
+}

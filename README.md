@@ -6,12 +6,13 @@ This repository contains a collection of dev container Features for use with [De
 
 This repository contains the following Features:
 
-- **opencode-ralph** - POSIX-compliant AI Agentic Loop shell runner for spec-driven development workflows
+- **ralph** - AI Agentic Loop shell runner for spec-driven development workflows
 - **lefthook** - Git hooks manager for fast and powerful Git hook workflows
+- **opencode-ralph** - [Deprecated] ralph + opencode installed via devcontainer features. Maintained only for legacy purposes, but consider using the `ralph` Feature instead.
 
 Each sub-section below shows a sample `devcontainer.json` alongside example usage of the Feature.
 
-### `opencode-ralph`
+### `ralph`
 
 Installs the `ralph` script for running AI Agentic Loop workflows with OpenCode.
 
@@ -19,8 +20,8 @@ Installs the `ralph` script for running AI Agentic Loop workflows with OpenCode.
 {
     "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
     "features": {
-        "ghcr.io/iyaki/devcontainer-features/opencode-ralph:1": {
-            "version": "main"
+        "ghcr.io/iyaki/devcontainer-features/ralph:1": {
+            "version": "latest"
         }
     }
 }
