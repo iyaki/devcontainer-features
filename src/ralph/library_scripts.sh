@@ -58,7 +58,7 @@ clean_download() {
         downloader=""
     fi
 
-    # in case none of them is installed, install wget temporarly
+    # in case none of them is installed, install wget temporarily
     if [ -z $downloader ] ; then
         if [ -x "/usr/bin/apt-get" ] ; then
             _apt_get_install $tempdir
