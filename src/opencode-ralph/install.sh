@@ -15,24 +15,7 @@ ensure_nanolayer NANOLAYER_LOCATION "v0.5.6"
 # Keep backward compatibility with INSTALL_DIR if set by callers.
 INSTALL_DIR="${INSTALLDIR:-${INSTALL_DIR:-/usr/local/bin}}"
 
-# map_ralph_asset_regex() {
-#     case "$(uname -m)" in
-#         x86_64|amd64)
-#             echo "ralph_.*_linux_amd64$"
-#             ;;
-#         aarch64|arm64)
-#             echo "ralph_.*_linux_arm64$"
-#             ;;
-#         *)
-#             echo "Unsupported architecture: $(uname -m)" >&2
-#             exit 1
-#             ;;
-#     esac
-# }
-
-
 mkdir -p "$INSTALL_DIR"
-# ASSET_REGEX=$(map_ralph_asset_regex)
 
 echo "Installing ralph ${VERSION} using nanolayer"
 "$NANOLAYER_LOCATION" \
@@ -43,4 +26,3 @@ echo "Installing ralph ${VERSION} using nanolayer"
     --option binaryNames='ralph' \
     --option version="$VERSION" \
     --option binLocation="$INSTALL_DIR"
-    # --option assetRegex="$ASSET_REGEX"
