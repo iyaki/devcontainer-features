@@ -1,5 +1,7 @@
 # Additional Notes
 
+This feature is deprecated and maintained only for legacy purposes. Consider using the `ralph` Feature instead.
+
 - Ralph CLI repository: [iyaki/ralph](https://github.com/iyaki/ralph)
 
 ## Requirements

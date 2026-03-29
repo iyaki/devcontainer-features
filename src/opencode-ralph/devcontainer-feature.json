@@ -1,8 +1,8 @@
 {
     "name": "Ralph Agentic Loop runner for OpenCode",
     "id": "opencode-ralph",
-    "version": "1.1.0",
-    "description": "POSIX-compliant AI Agentic Loop shell runner aimed for spec-driven development workflows.",
+    "version": "1.1.1",
+    "description": "[Dperecated] AI Agentic Loop shell runner aimed for spec-driven development workflows.",
     "options": {
         "version": {
             "type": "string",
