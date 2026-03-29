@@ -1,7 +1,7 @@
 {
     "name": "Lefthook",
     "id": "lefthook",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "description": "Fast and powerful Git hooks manager for any type of projects.",
     "options": {
         "version": {
