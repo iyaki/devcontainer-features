@@ -1,5 +1,5 @@
 
-# Ralph Agentic Loop runner (ralph)
+# Ralphex Agentic Loop runner (ralph)
 
 AI Agentic Loop shell runner aimed for spec-driven development workflows.
 
@@ -19,7 +19,7 @@ AI Agentic Loop shell runner aimed for spec-driven development workflows.
 
 # Additional Notes
 
-- Ralph CLI repository: [iyaki/ralph](https://github.com/iyaki/ralph)
+- Ralphex CLI repository: [iyaki/ralphex](https://github.com/iyaki/ralphex)
 
 ## Usage
 
