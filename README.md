@@ -14,7 +14,7 @@ Each sub-section below shows a sample `devcontainer.json` alongside example usag
 
 ### `ralph`
 
-Installs the `ralph` script for running AI Agentic Loop workflows.
+Installs the `ralph` CLI from [iyaki/ralphex](https://github.com/iyaki/ralphex) for running AI Agentic Loop workflows.
 
 ```jsonc
 {

@@ -15,6 +15,6 @@ ensure_nanolayer NANOLAYER_LOCATION "v0.5.6"
     install \
     devcontainer-feature \
     "ghcr.io/devcontainers-extra/features/gh-release:1.0.26" \
-    --option repo='iyaki/ralph' \
+    --option repo='iyaki/ralphex' \
     --option binaryNames='ralph' \
     --option version="$VERSION" \
