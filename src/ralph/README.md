@@ -1,5 +1,5 @@
 
-# Ralphex Agentic Loop runner (ralph)
+# Ralphex - Ralph-Wiggum Agentic Loop runner (ralph)
 
 AI Agentic Loop shell runner aimed for spec-driven development workflows.
 
@@ -27,7 +27,7 @@ This feature installs the `ralph` CLI.
 
 To pin the CLI to a specific release, set the `version` option to a release tag such as `v2.0.0`. To always install the newest published release, use `latest`.
 
-For example usage of the `ralph` CLI and proper documentation, see the [iyaki/ralph repository](https://github.com/iyaki/ralph).
+For example usage of the `ralph` CLI and proper documentation, see the [iyaki/ralphex repository](https://github.com/iyaki/ralphex).
 
 
 ---
