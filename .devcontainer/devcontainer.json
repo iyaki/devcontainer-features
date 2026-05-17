@@ -22,7 +22,7 @@
         }
     },
     "features": {
-        "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+        "ghcr.io/devcontainers/features/docker-in-docker:": {}
     },
     "remoteUser": "node",
     "updateContentCommand": "npm install -g @devcontainers/cli"
