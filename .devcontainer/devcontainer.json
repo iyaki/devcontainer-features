@@ -3,6 +3,19 @@
     "runArgs": [
         "--userns=keep-id" // For podman users, to avoid permission issues with bind mountson on rootless mode.
     ],
+    "mounts": [
+        // OpenCode config and data - https://opencode.ai/docs/cli/#configuration-and-data
+		{
+			"source": "${localEnv:HOME}/.opencode",
+			"target": "/home/codespace/.local/share/opencode",
+			"type": "bind"
+		},
+		{
+			"source": "${localEnv:HOME}/.local/state/opencode",
+			"target": "/home/codespace/.local/state/opencode",
+			"type": "bind"
+		}
+    ],
     "customizations": {
         "vscode": {
             "settings": {
@@ -22,7 +35,8 @@
         }
     },
     "features": {
-        "ghcr.io/devcontainers/features/docker-in-docker:": {}
+        "ghcr.io/devcontainers/features/docker-in-docker:": {},
+        "ghcr.io/devcontainers-extra/features/opencode:": {}
     },
     "remoteUser": "node",
     "updateContentCommand": "npm install -g @devcontainers/cli"
