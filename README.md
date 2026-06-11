@@ -8,7 +8,29 @@ This repository contains the following Features:
 
 - **ralph** - AI Agentic Loop shell runner for spec-driven development workflows
 - **lefthook** - Git hooks manager for fast and powerful Git hook workflows
+- **oh-my-pi** - AI coding agent toolkit for terminal-based development
 - **opencode-ralph** - [Deprecated] ralph + opencode installed via devcontainer features. Maintained only for legacy purposes, but consider using the `ralph` Feature instead.
+
+### `oh-my-pi`
+
+Installs `omp` (Oh My Pi) from [can1357/oh-my-pi](https://github.com/can1357/oh-my-pi) GitHub Releases — an AI coding agent toolkit for terminal-based development.
+
+```jsonc
+{
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "features": {
+        "ghcr.io/iyaki/devcontainer-features/oh-my-pi:": {
+            "version": "latest"
+        }
+    }
+}
+```
+
+```bash
+$ omp --help
+
+# OMP installed and ready to use
+```
 
 Each sub-section below shows a sample `devcontainer.json` alongside example usage of the Feature.
 
@@ -20,7 +42,7 @@ Installs the `ralph` CLI from [iyaki/ralphex](https://github.com/iyaki/ralphex) 
 {
     "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
     "features": {
-        "ghcr.io/iyaki/devcontainer-features/ralph:1": {
+        "ghcr.io/iyaki/devcontainer-features/ralph:": {
             "version": "latest"
         }
     }
@@ -41,7 +63,7 @@ Installs `lefthook` from GitHub Releases.
 {
     "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
     "features": {
-        "ghcr.io/iyaki/devcontainer-features/lefthook:2": {
+        "ghcr.io/iyaki/devcontainer-features/lefthook:": {
             "version": "latest"
         }
     }
