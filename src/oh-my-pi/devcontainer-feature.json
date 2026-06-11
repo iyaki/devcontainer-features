@@ -1,0 +1,16 @@
+{
+    "name": "Oh My Pi",
+    "id": "oh-my-pi",
+    "version": "1.0.0",
+    "description": "Oh My Pi AI coding agent toolkit for terminal-based development.",
+    "options": {
+        "version": {
+            "type": "string",
+            "default": "latest",
+            "description": "Release version to install. Use 'latest' or a release tag such as 'v15.11.2'."
+        }
+    },
+    "installsAfter": [
+        "ghcr.io/devcontainers-extra/features/gh-release"
+    ]
+}
