@@ -1,7 +1,7 @@
 
-# SpecRalph - Ralph-Wiggum Agentic Loop runner (ralph)
+# SpecRalph - Spec-Driven Ralph-Wiggum Agentic AI Loops Runner (ralph)
 
-AI Agentic Loop shell runner aimed for spec-driven development workflows.
+Spec-driven AI coding automation CLI. AI Loops runner for Claude Code, OpenCode, Cursor, and other agent CLIs.
 
 ## Example Usage
 
@@ -15,7 +15,7 @@ AI Agentic Loop shell runner aimed for spec-driven development workflows.
 
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
-| version | Release version to install. Use 'latest' or a release tag such as 'v2.0.0'. | string | latest |
+| version | SpecRalph version to install. Use 'latest' or a release tag such as 'v3.0.0'. | string | latest |
 
 # Additional Notes
 
