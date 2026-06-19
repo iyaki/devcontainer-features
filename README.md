@@ -9,7 +9,6 @@ This repository contains the following Features:
 - **ralph** - AI Agentic Loop shell runner for spec-driven development workflows
 - **lefthook** - Git hooks manager for fast and powerful Git hook workflows
 - **oh-my-pi** - AI coding agent toolkit for terminal-based development
-- **opencode-ralph** - [Deprecated] ralph + opencode installed via devcontainer features. Maintained only for legacy purposes, but consider using the `ralph` Feature instead.
 
 ### `oh-my-pi`
 
