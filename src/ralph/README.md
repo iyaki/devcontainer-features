@@ -1,5 +1,5 @@
 
-# SpecRalph - Spec-Driven Ralph-Wiggum Loops (ralph)
+# SpecRalph - Ralph-Wiggum Agentic Loop runner (ralph)
 
 AI Agentic Loop shell runner aimed for spec-driven development workflows.
 
