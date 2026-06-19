@@ -1,13 +1,13 @@
 {
-    "name": "SpecRalph - Ralph-Wiggum Agentic Loop runner",
+    "name": "SpecRalph - Spec-Driven Ralph-Wiggum Agentic AI Loops Runner",
     "id": "ralph",
-    "version": "1.0.1",
-    "description": "AI Agentic Loop shell runner aimed for spec-driven development workflows.",
+    "version": "1.0.2",
+    "description": "Spec-driven AI coding automation CLI. AI Loops runner for Claude Code, OpenCode, Cursor, and other agent CLIs.",
     "options": {
         "version": {
             "type": "string",
             "default": "latest",
-            "description": "Release version to install. Use 'latest' or a release tag such as 'v2.0.0'."
+            "description": "SpecRalph version to install. Use 'latest' or a release tag such as 'v3.0.0'."
         }
     },
     "installsAfter": [
