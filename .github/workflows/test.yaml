@@ -17,8 +17,9 @@ jobs:
     strategy:
       matrix:
         features:
-          - opencode-ralph
           - lefthook
+          - oh-my-pi
+          - ralph
         baseImage:
           - debian:latest
           - ubuntu:latest
@@ -38,8 +39,9 @@ jobs:
     strategy:
       matrix:
         features:
-          - opencode-ralph
           - lefthook
+          - oh-my-pi
+          - ralph
     steps:
       - uses: actions/checkout@v6
 
