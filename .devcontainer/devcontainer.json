@@ -1,20 +1,23 @@
 {
     "image": "mcr.microsoft.com/devcontainers/javascript-node:1-20-bookworm",
-    "runArgs": [
-        "--userns=keep-id" // For podman users, to avoid permission issues with bind mountson on rootless mode.
-    ],
     "mounts": [
         // OpenCode config and data - https://opencode.ai/docs/cli/#configuration-and-data
-		{
-			"source": "${localEnv:HOME}/.opencode",
-			"target": "/home/codespace/.local/share/opencode",
-			"type": "bind"
-		},
-		{
-			"source": "${localEnv:HOME}/.local/state/opencode",
-			"target": "/home/codespace/.local/state/opencode",
-			"type": "bind"
-		}
+        {
+            "source": "${localEnv:HOME}/.opencode",
+            "target": "/home/node/.local/share/opencode",
+            "type": "bind"
+        },
+        {
+            "source": "${localEnv:HOME}/.local/state/opencode",
+            "target": "/home/node/.local/state/opencode",
+            "type": "bind"
+        },
+        { "source": "${localEnv:HOME}/.config/gh/", "target": "/home/node/.config/gh/", "type": "bind" },
+        {
+            "source": "${localEnv:HOME}/.omp",
+            "target": "/home/node/.omp",
+            "type": "bind"
+        }
     ],
     "customizations": {
         "vscode": {
@@ -36,7 +39,8 @@
     },
     "features": {
         "ghcr.io/devcontainers/features/docker-in-docker:": {},
-        "ghcr.io/devcontainers-extra/features/opencode:": {}
+        "ghcr.io/devcontainers-extra/features/opencode:": {},
+        "ghcr.io/iyaki/devcontainer-features/oh-my-pi:": {}
     },
     "remoteUser": "node",
     "updateContentCommand": "npm install -g @devcontainers/cli"
