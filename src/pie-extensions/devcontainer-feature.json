@@ -1,0 +1,16 @@
+{
+    "name": "PHP Extensions via PIE",
+    "id": "pie-extensions",
+    "version": "1.0.0",
+    "description": "Installs PHP extensions using PIE (PHP Installer for Extensions) into the PHP installation provided by a PHP runtime feature. Requires the pie feature and a PHP runtime with build tools, e.g. the official PHP devcontainer feature.",
+    "options": {
+        "extensions": {
+            "type": "string",
+            "default": "",
+            "description": "Comma-separated list of PIE packages to install, e.g. \"apcu/apcu,xdebug/xdebug\". PIE package names are Composer-style vendor/package names; per-package version constraints are supported, e.g. \"xdebug/xdebug:^3.4\"."
+        }
+    },
+    "installsAfter": [
+        "ghcr.io/iyaki/devcontainer-features/pie"
+    ]
+}
