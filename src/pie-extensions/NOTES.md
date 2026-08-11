@@ -4,18 +4,21 @@ Installs PHP extensions using [PIE](https://github.com/php/pie) (PHP Installer f
 
 ## Pre-requisites
 
-This Feature installs extensions into the system `php` binary found on PATH. It therefore requires:
+This Feature installs extensions into the system `php` binary found on PATH. It requires:
 
 - the **pie** Feature (`ghcr.io/iyaki/devcontainer-features/pie`) — provides the `pie` binary (declared via `installsAfter`);
+- a **PHP runtime with build tools** — `php`, `phpize`, `php-config`, `autoconf`, `make`, `gcc`, and `git` (PIE needs these to download, build, and install extensions). This is a pre-requisite, not declared via `installsAfter`: feature install order is not guaranteed, so PHP must already be present when this Feature installs — e.g. use a PHP base image like `mcr.microsoft.com/devcontainers/php:8.4`.
 
 Example:
 
 ```jsonc
-"features": {
-    "ghcr.io/devcontainers/features/php": { "version": "8.4" },
-    "ghcr.io/iyaki/devcontainer-features/pie": {},
-    "ghcr.io/iyaki/devcontainer-features/pie-extensions": {
-        "extensions": "apcu/apcu,xdebug/xdebug"
+{
+    "image": "mcr.microsoft.com/devcontainers/php:8.4",
+    "features": {
+        "ghcr.io/iyaki/devcontainer-features/pie": {},
+        "ghcr.io/iyaki/devcontainer-features/pie-extensions": {
+            "extensions": "apcu/apcu,xdebug/xdebug"
+        }
     }
 }
 ```
