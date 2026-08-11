@@ -10,6 +10,7 @@ This repository contains the following Features:
 - **lefthook** - Git hooks manager for fast and powerful Git hook workflows
 - **oh-my-pi** - AI coding agent toolkit for terminal-based development
 - **pie** - PHP Installer for Extensions (PIE), the official PECL replacement, as a self-contained static binary
+- **pie-extensions** - Installs PHP extensions using PIE into a PHP installation
 
 ### `oh-my-pi`
 
@@ -95,6 +96,30 @@ Installs PIE — the official PHP extension installer (replaces PECL) — from [
 $ pie --version
 
 # PIE installed and ready to use
+
+### `pie-extensions`
+
+Installs PHP extensions using PIE — the official PHP extension installer (replaces PECL) — into the PHP installation provided by a PHP runtime feature. Requires the [`pie`](#pie) feature and a PHP runtime with build tools (e.g. [`ghcr.io/devcontainers/features/php`](https://github.com/devcontainers/features/tree/main/src/php)).
+
+```jsonc
+{
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "features": {
+        "ghcr.io/devcontainers/features/php": {
+            "version": "8.4"
+        },
+        "ghcr.io/iyaki/devcontainer-features/pie:": {},
+        "ghcr.io/iyaki/devcontainer-features/pie-extensions:": {
+            "extensions": "apcu/apcu,xdebug/xdebug"
+        }
+    }
+}
+```
+
+```bash
+$ php -m | grep -E 'apcu|xdebug'
+
+# Extensions installed and enabled
 ```
 
 

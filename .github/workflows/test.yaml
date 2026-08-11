@@ -44,6 +44,7 @@ jobs:
           - oh-my-pi
           - ralph
           - pie
+          - pie-extensions
     steps:
       - uses: actions/checkout@v7
 

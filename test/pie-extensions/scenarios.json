@@ -1,0 +1,14 @@
+{
+    "default": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "ghcr.io/devcontainers/features/php": {
+                "version": "8.4"
+            },
+            "pie": {},
+            "pie-extensions": {
+                "extensions": "apcu/apcu,xdebug/xdebug"
+            }
+        }
+    }
+}
