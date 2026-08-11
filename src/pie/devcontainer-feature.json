@@ -9,8 +9,5 @@
             "default": "latest",
             "description": "PIE release version to install (for example: 1.4.9). Use 'latest' for the newest release. Release tags are bare numbers (no 'v' prefix)."
         }
-    },
-    "installsAfter": [
-        "ghcr.io/devcontainers-extra/features/gh-release"
-    ]
+    }
 }
