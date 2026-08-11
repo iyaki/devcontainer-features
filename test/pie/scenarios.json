@@ -1,0 +1,1 @@
+{"default":{"image":"mcr.microsoft.com/devcontainers/base:ubuntu","features":{"pie":{}}},"version_pinned":{"image":"mcr.microsoft.com/devcontainers/base:ubuntu","features":{"pie":{"version":"1.4.9"}}}}

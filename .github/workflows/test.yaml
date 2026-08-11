@@ -20,6 +20,7 @@ jobs:
           - lefthook
           - oh-my-pi
           - ralph
+          - pie
         baseImage:
           - debian:latest
           - ubuntu:latest
@@ -42,6 +43,7 @@ jobs:
           - lefthook
           - oh-my-pi
           - ralph
+          - pie
     steps:
       - uses: actions/checkout@v7
 

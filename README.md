@@ -9,6 +9,7 @@ This repository contains the following Features:
 - **ralph** - AI Agentic Loop shell runner for spec-driven development workflows
 - **lefthook** - Git hooks manager for fast and powerful Git hook workflows
 - **oh-my-pi** - AI coding agent toolkit for terminal-based development
+- **pie** - PHP Installer for Extensions (PIE), the official PECL replacement, as a self-contained static binary
 
 ### `oh-my-pi`
 
@@ -74,6 +75,28 @@ $ lefthook version
 
 # Lefthook installed and ready to use
 ```
+
+### `pie`
+
+Installs PIE — the official PHP extension installer (replaces PECL) — from [php/pie](https://github.com/php/pie) GitHub Releases as a self-contained static binary.
+
+```jsonc
+{
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "features": {
+        "ghcr.io/iyaki/devcontainer-features/pie:": {
+            "version": "latest"
+        }
+    }
+}
+```
+
+```bash
+$ pie --version
+
+# PIE installed and ready to use
+```
+
 
 ## Repo and Feature Structure
 
