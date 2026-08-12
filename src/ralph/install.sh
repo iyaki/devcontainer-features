@@ -6,6 +6,21 @@ set -e
 
 VERSION="${VERSION:-latest}"
 
+# Ensure a downloader exists up front so clean_download never has to install
+# and purge wget per call: each apt cycle is slow (and has flaked in CI), and
+# both the tag resolution and the asset download would otherwise trigger one.
+if ! type curl >/dev/null 2>&1 && ! type wget >/dev/null 2>&1; then
+    if [ -x /usr/bin/apt-get ]; then
+        apt-get update -y
+        apt-get install -y --no-install-recommends wget ca-certificates
+    elif [ -x /sbin/apk ]; then
+        apk add --no-cache wget
+    else
+        echo "No downloader available and no supported package manager" >&2
+        exit 1
+    fi
+fi
+
 # Normalize to a bare version (no leading "v")
 VERSION=$(printf '%s' "$VERSION" | sed 's/^v//')
 
