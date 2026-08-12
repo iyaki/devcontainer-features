@@ -30,7 +30,7 @@ resolve_latest_tag() {
     # tagged release, and the tag is embedded in the page HTML.
     tmp_file=$(mktemp)
     clean_download "https://github.com/evilmartians/lefthook/releases/latest" "$tmp_file"
-    tag=$(grep -oE 'releases/tag/v[0-9]+\.[0-9]+\.[0-9]+' "$tmp_file" | head -n 1 | sed 's#releases/tag/##')
+    tag=$(grep -oE 'releases/tag/v?[0-9]+\.[0-9]+\.[0-9]+' "$tmp_file" | head -n 1 | sed 's#releases/tag/##')
     rm -f "$tmp_file"
     if [ -z "$tag" ]; then
         echo "Failed to resolve latest lefthook release tag" >&2
