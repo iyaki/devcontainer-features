@@ -21,6 +21,7 @@ jobs:
           - oh-my-pi
           - ralph
           - pie
+          - phpantom
         baseImage:
           - debian:latest
           - ubuntu:latest
@@ -45,6 +46,7 @@ jobs:
           - ralph
           - pie
           - pie-extensions
+          - phpantom
     steps:
       - uses: actions/checkout@v7
 
