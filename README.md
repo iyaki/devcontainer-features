@@ -16,6 +16,7 @@ This repository contains the following Features:
 ### `oh-my-pi`
 
 Installs `omp` (Oh My Pi) from [can1357/oh-my-pi](https://github.com/can1357/oh-my-pi) GitHub Releases — an AI coding agent toolkit for terminal-based development.
+Full options and notes: [`src/oh-my-pi/README.md`](src/oh-my-pi/README.md).
 
 ```jsonc
 {
@@ -39,6 +40,7 @@ Each sub-section below shows a sample `devcontainer.json` alongside example usag
 ### `ralph`
 
 Installs the `ralph` CLI from [iyaki/specralph](https://github.com/iyaki/specralph) for running AI Agentic Loop workflows.
+Full options and notes: [`src/ralph/README.md`](src/ralph/README.md).
 
 ```jsonc
 {
@@ -60,6 +62,7 @@ $ ralph --help
 ### `lefthook`
 
 Installs `lefthook` from GitHub Releases.
+Full options and notes: [`src/lefthook/README.md`](src/lefthook/README.md).
 
 ```jsonc
 {
@@ -81,6 +84,7 @@ $ lefthook version
 ### `pie`
 
 Installs PIE — the official PHP extension installer (replaces PECL) — from [php/pie](https://github.com/php/pie) GitHub Releases as a self-contained static binary.
+Full options and notes: [`src/pie/README.md`](src/pie/README.md).
 
 ```jsonc
 {
@@ -102,6 +106,7 @@ $ pie --version
 ### `pie-extensions`
 
 Installs PHP extensions using PIE — the official PHP extension installer (replaces PECL) — into the PHP installation provided by a PHP runtime feature. Requires the [`pie`](#pie) feature and a PHP runtime with build tools (e.g. [`ghcr.io/devcontainers/features/php`](https://github.com/devcontainers/features/tree/main/src/php)).
+Full options and notes: [`src/pie-extensions/README.md`](src/pie-extensions/README.md).
 
 ```jsonc
 {
@@ -126,6 +131,7 @@ $ php -m | grep -E 'apcu|xdebug'
 ### `phpantom`
 
 Installs PHPantom — a fast, lightweight PHP language server written in Rust — from [PHPantom-dev/phpantom_lsp](https://github.com/PHPantom-dev/phpantom_lsp) GitHub Releases as a self-contained binary bundled with phpstorm-stubs, so it needs no PHP runtime.
+Full options and notes: [`src/phpantom/README.md`](src/phpantom/README.md).
 
 ```jsonc
 {
