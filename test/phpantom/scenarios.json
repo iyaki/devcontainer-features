@@ -1,0 +1,1 @@
+{"default":{"image":"mcr.microsoft.com/devcontainers/base:ubuntu","features":{"phpantom":{}}},"version_pinned":{"image":"mcr.microsoft.com/devcontainers/base:ubuntu","features":{"phpantom":{"version":"0.9.0"}}}}
