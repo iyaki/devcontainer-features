@@ -6,12 +6,12 @@ This repository contains a collection of dev container Features for use with [De
 
 This repository contains the following Features:
 
-- **ralph** - AI Agentic Loop shell runner for spec-driven development workflows
-- **lefthook** - Git hooks manager for fast and powerful Git hook workflows
-- **oh-my-pi** - AI coding agent toolkit for terminal-based development
-- **pie** - PHP Installer for Extensions (PIE), the official PECL replacement, as a self-contained static binary
-- **pie-extensions** - Installs PHP extensions using PIE into a PHP installation
-- **phpantom** - PHPantom, a fast and lightweight PHP language server written in Rust, as a self-contained binary
+- [**ralph**](#ralph) - AI Agentic Loop shell runner for spec-driven development workflows
+- [**lefthook**](#lefthook) - Git hooks manager for fast and powerful Git hook workflows
+- [**oh-my-pi**](#oh-my-pi) - AI coding agent toolkit for terminal-based development
+- [**pie**](#pie) - PHP Installer for Extensions (PIE), the official PECL replacement, as a self-contained static binary
+- [**pie-extensions**](#pie-extensions) - Installs PHP extensions using PIE into a PHP installation
+- [**phpantom**](#phpantom) - PHPantom, a fast and lightweight PHP language server written in Rust, as a self-contained binary
 
 ### `oh-my-pi`
 
