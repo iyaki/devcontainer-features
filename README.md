@@ -11,6 +11,7 @@ This repository contains the following Features:
 - **oh-my-pi** - AI coding agent toolkit for terminal-based development
 - **pie** - PHP Installer for Extensions (PIE), the official PECL replacement, as a self-contained static binary
 - **pie-extensions** - Installs PHP extensions using PIE into a PHP installation
+- **phpantom** - PHPantom, a fast and lightweight PHP language server written in Rust, as a self-contained binary
 
 ### `oh-my-pi`
 
@@ -120,6 +121,27 @@ Installs PHP extensions using PIE — the official PHP extension installer (repl
 $ php -m | grep -E 'apcu|xdebug'
 
 # Extensions installed and enabled
+```
+
+### `phpantom`
+
+Installs PHPantom — a fast, lightweight PHP language server written in Rust — from [PHPantom-dev/phpantom_lsp](https://github.com/PHPantom-dev/phpantom_lsp) GitHub Releases as a self-contained binary bundled with phpstorm-stubs, so it needs no PHP runtime.
+
+```jsonc
+{
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "features": {
+        "ghcr.io/iyaki/devcontainer-features/phpantom:": {
+            "version": "latest"
+        }
+    }
+}
+```
+
+```bash
+$ phpantom_lsp --version
+
+# PHPantom installed and ready to use
 ```
 
 
