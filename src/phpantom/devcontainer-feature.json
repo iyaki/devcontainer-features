@@ -1,1 +1,13 @@
-{"name":"PHPantom LSP","id":"phpantom","version":"1.0.0","description":"Installs PHPantom — a fast, lightweight PHP language server written in Rust — from the PHPantom-dev/phpantom_lsp GitHub Releases as a self-contained binary.","options":{"version":{"type":"string","default":"latest","description":"PHPantom release version to install (for example: 0.9.0). Use 'latest' for the newest release. Release tags are bare numbers (no 'v' prefix)."}}}
+{
+    "name": "PHPantom LSP",
+    "id": "phpantom",
+    "version": "1.0.0",
+    "description": "Installs PHPantom — a fast, lightweight PHP language server written in Rust — from the PHPantom-dev/phpantom_lsp GitHub Releases as a self-contained binary.",
+    "options": {
+        "version": {
+            "type": "string",
+            "default": "latest",
+            "description": "PHPantom release version to install (for example: 0.9.0). Use 'latest' for the newest release. Release tags are bare numbers (no 'v' prefix)."
+        }
+    }
+}
