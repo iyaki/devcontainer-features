@@ -96,6 +96,7 @@ Installs PIE — the official PHP extension installer (replaces PECL) — from [
 $ pie --version
 
 # PIE installed and ready to use
+```
 
 ### `pie-extensions`
 
@@ -108,7 +109,6 @@ Installs PHP extensions using PIE — the official PHP extension installer (repl
         "ghcr.io/devcontainers/features/php": {
             "version": "8.4"
         },
-        "ghcr.io/iyaki/devcontainer-features/pie:": {},
         "ghcr.io/iyaki/devcontainer-features/pie-extensions:": {
             "extensions": "apcu/apcu,xdebug/xdebug"
         }

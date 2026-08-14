@@ -7,7 +7,10 @@
         "extensions": {
             "type": "string",
             "default": "",
-            "description": "Comma-separated list of PIE packages to install, e.g. \"apcu/apcu,xdebug/xdebug\". PIE package names are Composer-style vendor/package names; per-package version constraints are supported, e.g. \"xdebug/xdebug:^3.4\"."
+            "description": "Comma-separated list of PIE packages to install, e.g. \"apcu/apcu,xdebug/xdebug\". PIE package names are Composer-style vendor/package names; per-package version constraints are supported, e.g. \"xdebug/xdebug:^3.4\".",
+            "proposals": [
+                "xdebug/xdebug"
+            ]
         }
     },
     "installsAfter": [
