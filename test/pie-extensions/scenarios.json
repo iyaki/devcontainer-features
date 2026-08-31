@@ -7,5 +7,15 @@
                 "extensions": "apcu/apcu,xdebug/xdebug"
             }
         }
+    },
+    "post_install": {
+        "image": "mcr.microsoft.com/devcontainers/php:8.4",
+        "features": {
+            "pie": {},
+            "pie-extensions": {
+                "extensions": "apcu/apcu",
+                "postInstall": "rm -f $(php-config --extension-dir)/apcu.so\ntouch /tmp/pie-postinstall-ran"
+            }
+        }
     }
 }

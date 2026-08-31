@@ -1,7 +1,7 @@
 {
     "name": "PHP Extensions via PIE",
     "id": "pie-extensions",
-    "version": "2.0.0",
+    "version": "2.1.0",
     "description": "Installs PHP extensions using PIE (PHP Installer for Extensions) into the PHP installation provided by a PHP runtime feature. Requires the pie feature and a PHP runtime with build tools, e.g. the official PHP devcontainer feature.",
     "documentationURL": "https://github.com/iyaki/devcontainer-features/tree/main/src/pie-extensions",
     "keywords": ["php", "extensions", "pie", "pecl"],
@@ -13,6 +13,11 @@
             "proposals": [
                 "xdebug/xdebug"
             ]
+        },
+        "postInstall": {
+            "type": "string",
+            "default": "",
+            "description": "Optional multi-line bash script executed once after all extensions are installed (runs as root). Use it to edit or delete files created during installation, e.g. \"rm -f $(php-config --extension-dir)/apcu.so\". A non-zero exit code fails the build."
         }
     },
     "dependsOn": {
