@@ -1,7 +1,7 @@
 {
     "name": "PHP Extensions via PIE",
     "id": "pie-extensions",
-    "version": "1.0.0",
+    "version": "2.0.0",
     "description": "Installs PHP extensions using PIE (PHP Installer for Extensions) into the PHP installation provided by a PHP runtime feature. Requires the pie feature and a PHP runtime with build tools, e.g. the official PHP devcontainer feature.",
     "options": {
         "extensions": {
@@ -13,7 +13,7 @@
             ]
         }
     },
-    "installsAfter": [
-        "ghcr.io/iyaki/devcontainer-features/pie"
-    ]
+    "dependsOn": {
+        "ghcr.io/iyaki/devcontainer-features/pie:": {}
+    }
 }
