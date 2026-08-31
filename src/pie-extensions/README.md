@@ -16,7 +16,7 @@ Installs PHP extensions using PIE (PHP Installer for Extensions) into the PHP in
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
 | extensions | Comma-separated list of PIE packages to install, e.g. "apcu/apcu,xdebug/xdebug". PIE package names are Composer-style vendor/package names; per-package version constraints are supported, e.g. "xdebug/xdebug:^3.4". | string | - |
-| postInstall | Optional multi-line bash script executed once after all extensions are installed (runs as root). Use it to edit or delete files created during installation. A non-zero exit code fails the build. | string | - |
+| postInstall | Optional multi-line bash script executed once after all extensions are installed (runs as root). Use it to edit or delete files created during installation, e.g. "rm -f $(php-config --extension-dir)/apcu.so". A non-zero exit code fails the build. | string | - |
 
 # Notes
 
