@@ -3,6 +3,8 @@
     "id": "oh-my-pi",
     "version": "1.0.0",
     "description": "Oh My Pi AI coding agent toolkit for terminal-based development.",
+    "documentationURL": "https://github.com/iyaki/devcontainer-features/tree/main/src/oh-my-pi",
+    "keywords": ["ai", "agent", "cli", "coding", "pi", "oh-my-pi", "omp", "terminal", "harness", "llm"],
     "options": {
         "version": {
             "type": "string",

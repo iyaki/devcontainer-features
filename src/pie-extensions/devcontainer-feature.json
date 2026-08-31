@@ -3,6 +3,8 @@
     "id": "pie-extensions",
     "version": "2.0.0",
     "description": "Installs PHP extensions using PIE (PHP Installer for Extensions) into the PHP installation provided by a PHP runtime feature. Requires the pie feature and a PHP runtime with build tools, e.g. the official PHP devcontainer feature.",
+    "documentationURL": "https://github.com/iyaki/devcontainer-features/tree/main/src/pie-extensions",
+    "keywords": ["php", "extensions", "pie", "pecl"],
     "options": {
         "extensions": {
             "type": "string",

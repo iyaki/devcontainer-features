@@ -3,6 +3,8 @@
     "id": "pie",
     "version": "1.0.1",
     "description": "Installs PIE — the official PHP Installer for Extensions (replaces PECL) — from the php/pie GitHub Releases as a self-contained static binary.",
+    "documentationURL": "https://github.com/iyaki/devcontainer-features/tree/main/src/pie",
+    "keywords": ["php", "extensions", "pie", "installer"],
     "options": {
         "version": {
             "type": "string",
