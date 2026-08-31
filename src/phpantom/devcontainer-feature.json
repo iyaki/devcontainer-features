@@ -3,6 +3,8 @@
     "id": "phpantom",
     "version": "1.0.0",
     "description": "Installs PHPantom — a fast, lightweight PHP language server written in Rust — from the PHPantom-dev/phpantom_lsp GitHub Releases as a self-contained binary.",
+    "documentationURL": "https://github.com/iyaki/devcontainer-features/tree/main/src/phpantom",
+    "keywords": ["php", "lsp", "language-server", "rust", "refactoring"],
     "options": {
         "version": {
             "type": "string",

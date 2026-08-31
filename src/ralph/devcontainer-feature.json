@@ -3,6 +3,8 @@
     "id": "ralph",
     "version": "1.0.2",
     "description": "Spec-driven AI coding automation CLI. AI Loops runner for Claude Code, OpenCode, Cursor, and other agent CLIs.",
+    "documentationURL": "https://github.com/iyaki/devcontainer-features/tree/main/src/ralph",
+    "keywords": ["ai", "agent", "automation", "spec-driven", "spec-driven development", "SDD", "claude", "claude code", "openai", "codex", "cursor", "oh-my-pi", "agentic", "loops", "looping", "cli"],
     "options": {
         "version": {
             "type": "string",
