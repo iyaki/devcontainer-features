@@ -30,6 +30,24 @@ Each package is installed with `pie install --no-cache --auto-install-build-tool
 
 A list of PIE-compatible packages is available at <https://packagist.org/extensions>.
 
+## Post-install commands
+
+The optional `postInstall` option takes a multi-line bash script that runs once, as root, after all extensions are installed. Use it to edit or delete files created during installation, e.g. removing a shared object PIE installed:
+
+```jsonc
+{
+    "image": "mcr.microsoft.com/devcontainers/php:8.4",
+    "features": {
+        "ghcr.io/iyaki/devcontainer-features/pie-extensions": {
+            "extensions": "apcu/apcu",
+            "postInstall": "rm -f $(php-config --extension-dir)/apcu.so"
+        }
+    }
+}
+```
+
+A non-zero exit code of the script fails the build.
+
 ## Design notes
 
 - The official PHP feature sets the `PHP_PATH` env var to the PHP install *directory* (`/usr/local/php/current`). PIE locates the target PHP via Symfony's `PhpExecutableFinder`, which treats `PHP_PATH` as a path to a *binary* and bails on directories (`Could not find path to PHP executable`). The install script therefore exports `PHP_PATH="$(command -v php)"` before invoking `pie`.

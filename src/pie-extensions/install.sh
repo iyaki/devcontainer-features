@@ -58,3 +58,11 @@ for pkg in $EXTENSIONS; do
         --auto-install-system-dependencies \
         "$pkg"
 done
+
+# POSTINSTALL: optional multi-line bash script run once after all extensions
+# are installed, as root. Use it to edit or delete files created during
+# installation. A non-zero exit fails the build (set -e).
+if [ -n "${POSTINSTALL:-}" ]; then
+    echo "Running post-install commands..."
+    bash -c "$POSTINSTALL"
+fi

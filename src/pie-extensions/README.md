@@ -16,6 +16,7 @@ Installs PHP extensions using PIE (PHP Installer for Extensions) into the PHP in
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
 | extensions | Comma-separated list of PIE packages to install, e.g. "apcu/apcu,xdebug/xdebug". PIE package names are Composer-style vendor/package names; per-package version constraints are supported, e.g. "xdebug/xdebug:^3.4". | string | - |
+| postInstall | Optional multi-line bash script executed once after all extensions are installed (runs as root). Use it to edit or delete files created during installation. A non-zero exit code fails the build. | string | - |
 
 # Notes
 
@@ -48,6 +49,24 @@ The `extensions` option takes a comma-separated list of PIE packages (Composer-s
 Each package is installed with `pie install --no-cache --auto-install-build-tools --auto-install-system-dependencies` so the build runs non-interactively in a container (no prompts for missing build tools or system libraries).
 
 A list of PIE-compatible packages is available at <https://packagist.org/extensions>.
+
+## Post-install commands
+
+The optional `postInstall` option takes a multi-line bash script that runs once, as root, after all extensions are installed. Use it to edit or delete files created during installation, e.g. removing a shared object PIE installed:
+
+```jsonc
+{
+    "image": "mcr.microsoft.com/devcontainers/php:8.4",
+    "features": {
+        "ghcr.io/iyaki/devcontainer-features/pie-extensions": {
+            "extensions": "apcu/apcu",
+            "postInstall": "rm -f $(php-config --extension-dir)/apcu.so"
+        }
+    }
+}
+```
+
+A non-zero exit code of the script fails the build.
 
 ## Design notes
 
