@@ -22,6 +22,7 @@ jobs:
           - ralph
           - pie
           - phpantom
+          - enchiridion
         baseImage:
           - debian:latest
           - ubuntu:latest
@@ -47,6 +48,11 @@ jobs:
           - pie
           - pie-extensions
           - phpantom
+          - enchiridion
+    env:
+      # The enchiridion feature downloads from the private
+      # iyaki/enchiridion releases; scenarios read it via localEnv.
+      GITHUB_TOKEN: ${{ secrets.ENCHIRIDION_TOKEN }}
     steps:
       - uses: actions/checkout@v7
 

@@ -1,0 +1,32 @@
+{
+    "name": "Enchiridion",
+    "id": "enchiridion",
+    "version": "1.0.0",
+    "description": "Installs enchiridion \u2014 the Notion knowledge-base mirror CLI \u2014 from the private iyaki/enchiridion GitHub Releases (authenticated download).",
+    "documentationURL": "https://github.com/iyaki/devcontainer-features/tree/main/src/enchiridion",
+    "keywords": [
+        "notion",
+        "knowledge-base",
+        "cli",
+        "sync",
+        "markdown"
+    ],
+    "options": {
+        "github_token": {
+            "type": "string",
+            "default": "",
+            "description": "GitHub token with contents:read on iyaki/enchiridion (the repository is private). Reads ${localEnv:GITHUB_TOKEN} when empty."
+        },
+        "version": {
+            "type": "string",
+            "default": "latest",
+            "description": "enchiridion release version to install (for example: 0.1.0). Use 'latest' for the newest release."
+        },
+        "enchiridion_home": {
+            "type": "string",
+            "default": "",
+            "description": "Cache root for the mirrored knowledge base. Leave empty for the default ~/.local/share/enchiridion."
+        }
+    },
+    "installsAfter": []
+}
