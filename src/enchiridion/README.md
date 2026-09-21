@@ -17,7 +17,7 @@ Installs enchiridion — the Notion knowledge-base mirror CLI — from the priva
 |-----|-----|-----|-----|
 | github_token | GitHub token with contents:read on iyaki/enchiridion (the repository is private). Reads ${localEnv:GITHUB_TOKEN} when empty. | string | - |
 | version | enchiridion release version to install (for example: 0.1.0). Use 'latest' for the newest release. | string | latest |
-| enchiridion_home | Cache root for the mirrored knowledge base. Leave empty for the default ~/.local/share/enchiridion. Persisted to /etc/profile.d/enchiridion.sh (login shells); non-login tooling can set ENCHIRIDION_HOME in containerEnv/remoteEnv. | string | - |
+| enchiridion_home | Cache root for the mirrored knowledge base. Leave empty for the default ~/.local/share/enchiridion. | string | - |
 
 # Notes
 
