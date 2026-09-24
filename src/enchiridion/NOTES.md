@@ -1,20 +1,21 @@
 # Notes
 
-Installs `enchiridion` from the **private** `iyaki/enchiridion` GitHub
-Releases (authenticated API download) and supports `x86_64` and `arm64`
+Installs `enchiridion` from the public `iyaki/enchiridion` GitHub
+Releases (no authentication required) and supports `x86_64` and `arm64`
 Linux architectures.
 
-## Authentication (required)
+## Authentication (optional)
 
-The release download needs a token with **contents:read** on
-`iyaki/enchiridion`. Set it through the `github_token` option in the
-consumer's `devcontainer.json`:
+The repository is public: the feature installs without any token. On
+shared CI runners, anonymous GitHub API calls are rate-limited (60 per
+hour per IP); a token raises the limit. Set it through the
+`github_token` option in the consumer's `devcontainer.json`:
 
 ```json
 {
     "name": "My project",
     "features": {
-        "ghcr.io/iyaki/devcontainer-features/enchiridion:1": {
+        "ghcr.io/iyaki/devcontainer-features/enchiridion:2": {
             "github_token": "${localEnv:GITHUB_TOKEN}"
         }
     }
@@ -22,8 +23,7 @@ consumer's `devcontainer.json`:
 ```
 
 `GITHUB_TOKEN` / `ENCHIRIDION_TOKEN` environment variables during the
-build work too. Without any token the build fails fast with
-instructions — never silently.
+build work too.
 
 ## Running the sync
 
@@ -54,4 +54,4 @@ set `ENCHIRIDION_HOME` in your `devcontainer.json` `containerEnv` or
 
 Additional resources:
 
-- [enchiridion repository](https://github.com/iyaki/enchiridion) (private)
+- [enchiridion repository](https://github.com/iyaki/enchiridion) (public)

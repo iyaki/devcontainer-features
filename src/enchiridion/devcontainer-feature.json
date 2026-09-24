@@ -1,8 +1,8 @@
 {
     "name": "Enchiridion",
     "id": "enchiridion",
-    "version": "1.0.0",
-    "description": "Installs enchiridion \u2014 the Notion knowledge-base mirror CLI \u2014 from the private iyaki/enchiridion GitHub Releases (authenticated download).",
+    "version": "2.0.0",
+    "description": "Installs enchiridion \u2014 the Notion knowledge-base mirror CLI \u2014 from the public iyaki/enchiridion GitHub Releases.",
     "documentationURL": "https://github.com/iyaki/devcontainer-features/tree/main/src/enchiridion",
     "keywords": [
         "notion",
@@ -15,7 +15,7 @@
         "github_token": {
             "type": "string",
             "default": "",
-            "description": "GitHub token with contents:read on iyaki/enchiridion (the repository is private). Reads ${localEnv:GITHUB_TOKEN} when empty."
+            "description": "Optional GitHub token; only raises the API rate limit (the repository is public). Reads ${localEnv:GITHUB_TOKEN} when empty."
         },
         "version": {
             "type": "string",

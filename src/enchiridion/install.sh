@@ -4,16 +4,11 @@ set -e
 
 VERSION="${VERSION:-latest}"
 
-# iyaki/enchiridion is a private repository: releases are read through the
-# authenticated GitHub API. The token needs contents:read on that repo
-# (fine-grained PAT); the github_token feature option is the documented
-# source, GITHUB_TOKEN/ENCHIRIDION_TOKEN environment variables work too.
+# iyaki/enchiridion is a public repository: release downloads work
+# anonymously. A token (github_token feature option, GITHUB_TOKEN or
+# ENCHIRIDION_TOKEN environment variables) is optional — it only raises the
+# GitHub API rate limit, which matters on shared CI runners.
 TOKEN="${GITHUB_TOKEN:-${ENCHIRIDION_TOKEN:-}}"
-if [ -z "$TOKEN" ]; then
-    echo "enchiridion feature requires a GitHub token with read access to the private repository iyaki/enchiridion." >&2
-    echo 'Set the "github_token" option (e.g. "${localEnv:GITHUB_TOKEN}") or export GITHUB_TOKEN during the build.' >&2
-    exit 1
-fi
 
 # Ensure a downloader exists up front: both the API calls and the asset
 # download need one.
@@ -33,19 +28,37 @@ API_BASE="https://api.github.com/repos/iyaki/enchiridion"
 
 api_get() {
     if type curl >/dev/null 2>&1; then
-        curl -fsSL -H "Authorization: Bearer $TOKEN" "$1"
+        if [ -n "$TOKEN" ]; then
+            curl -fsSL -H "Authorization: Bearer $TOKEN" "$1"
+        else
+            curl -fsSL "$1"
+        fi
     else
-        wget -q --header="Authorization: Bearer $TOKEN" -O - "$1"
+        if [ -n "$TOKEN" ]; then
+            wget -q --header="Authorization: Bearer $TOKEN" -O - "$1"
+        else
+            wget -q -O - "$1"
+        fi
     fi
 }
 
 download_asset() { # asset_id outfile
     if type curl >/dev/null 2>&1; then
-        curl -fsSL -H "Authorization: Bearer $TOKEN" -H "Accept: application/octet-stream" \
-            "$API_BASE/releases/assets/$1" -o "$2"
+        if [ -n "$TOKEN" ]; then
+            curl -fsSL -H "Authorization: Bearer $TOKEN" -H "Accept: application/octet-stream" \
+                "$API_BASE/releases/assets/$1" -o "$2"
+        else
+            curl -fsSL -H "Accept: application/octet-stream" \
+                "$API_BASE/releases/assets/$1" -o "$2"
+        fi
     else
-        wget -q --header="Authorization: Bearer $TOKEN" --header="Accept: application/octet-stream" \
-            -O "$2" "$API_BASE/releases/assets/$1"
+        if [ -n "$TOKEN" ]; then
+            wget -q --header="Authorization: Bearer $TOKEN" --header="Accept: application/octet-stream" \
+                -O "$2" "$API_BASE/releases/assets/$1"
+        else
+            wget -q --header="Accept: application/octet-stream" \
+                -O "$2" "$API_BASE/releases/assets/$1"
+        fi
     fi
 }
 
@@ -74,7 +87,7 @@ fi
 
 TAG=$(printf '%s' "$RELEASE_JSON" | grep -oE '"tag_name": *"[^"]+"' | head -n 1 | sed 's/.*"tag_name": *"//; s/"$//')
 if [ -z "$TAG" ]; then
-    echo "Failed to resolve enchiridion release (version: $VERSION). Check that the token has read access to iyaki/enchiridion." >&2
+    echo "Failed to resolve enchiridion release (version: $VERSION). Check the version and that https://github.com/iyaki/enchiridion is reachable." >&2
     exit 1
 fi
 VERSION=$(printf '%s' "$TAG" | sed 's/^v//')
