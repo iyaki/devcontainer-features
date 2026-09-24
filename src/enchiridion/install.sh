@@ -4,14 +4,10 @@ set -e
 
 VERSION="${VERSION:-latest}"
 
-# iyaki/enchiridion is a public repository: release downloads work
-# anonymously. A token (github_token feature option, GITHUB_TOKEN or
-# ENCHIRIDION_TOKEN environment variables) is optional — it only raises the
-# GitHub API rate limit, which matters on shared CI runners.
-TOKEN="${GITHUB_TOKEN:-${ENCHIRIDION_TOKEN:-}}"
+REPO_BASE="https://github.com/iyaki/enchiridion"
 
-# Ensure a downloader exists up front: both the API calls and the asset
-# download need one.
+# Ensure a downloader exists up front: release discovery and the asset
+# download both need one.
 if ! type curl >/dev/null 2>&1 && ! type wget >/dev/null 2>&1; then
     if [ -x /usr/bin/apt-get ]; then
         apt-get update -y
@@ -24,41 +20,23 @@ if ! type curl >/dev/null 2>&1 && ! type wget >/dev/null 2>&1; then
     fi
 fi
 
-API_BASE="https://api.github.com/repos/iyaki/enchiridion"
-
-api_get() {
+download() { # url outfile
     if type curl >/dev/null 2>&1; then
-        if [ -n "$TOKEN" ]; then
-            curl -fsSL -H "Authorization: Bearer $TOKEN" "$1"
-        else
-            curl -fsSL "$1"
-        fi
+        curl -fsSL "$1" -o "$2"
     else
-        if [ -n "$TOKEN" ]; then
-            wget -q --header="Authorization: Bearer $TOKEN" -O - "$1"
-        else
-            wget -q -O - "$1"
-        fi
+        wget -q -O "$2" "$1"
     fi
 }
 
-download_asset() { # asset_id outfile
+# Latest tag via the /releases/latest redirect: no API call, so no GitHub
+# API rate limit on shared CI runners.
+resolve_latest_tag() {
     if type curl >/dev/null 2>&1; then
-        if [ -n "$TOKEN" ]; then
-            curl -fsSL -H "Authorization: Bearer $TOKEN" -H "Accept: application/octet-stream" \
-                "$API_BASE/releases/assets/$1" -o "$2"
-        else
-            curl -fsSL -H "Accept: application/octet-stream" \
-                "$API_BASE/releases/assets/$1" -o "$2"
-        fi
+        curl -fsSL -o /dev/null -w '%{url_effective}\n' "$REPO_BASE/releases/latest" \
+            | sed 's|.*/tag/||; s/[[:space:]]*$//'
     else
-        if [ -n "$TOKEN" ]; then
-            wget -q --header="Authorization: Bearer $TOKEN" --header="Accept: application/octet-stream" \
-                -O "$2" "$API_BASE/releases/assets/$1"
-        else
-            wget -q --header="Accept: application/octet-stream" \
-                -O "$2" "$API_BASE/releases/assets/$1"
-        fi
+        wget -q --max-redirect=0 -S -O /dev/null "$REPO_BASE/releases/latest" 2>&1 \
+            | tr -d '\r' | grep -i '^ *Location:' | head -n 1 | sed 's|.*/tag/||; s/[[:space:]]*$//'
     fi
 }
 
@@ -80,33 +58,20 @@ map_enchiridion_asset_name() { # version without leading "v"
 VERSION=$(printf '%s' "$VERSION" | sed 's/^v//')
 
 if [ "$VERSION" = "latest" ]; then
-    RELEASE_JSON=$(api_get "$API_BASE/releases/latest")
+    TAG=$(resolve_latest_tag)
 else
-    RELEASE_JSON=$(api_get "$API_BASE/releases/tags/v$VERSION")
+    TAG="v$VERSION"
 fi
-
-TAG=$(printf '%s' "$RELEASE_JSON" | grep -oE '"tag_name": *"[^"]+"' | head -n 1 | sed 's/.*"tag_name": *"//; s/"$//')
 if [ -z "$TAG" ]; then
-    echo "Failed to resolve enchiridion release (version: $VERSION). Check the version and that https://github.com/iyaki/enchiridion is reachable." >&2
+    echo "Failed to resolve enchiridion release (version: $VERSION). Check the version and that $REPO_BASE is reachable." >&2
     exit 1
 fi
-VERSION=$(printf '%s' "$TAG" | sed 's/^v//')
 
-ASSET_NAME=$(map_enchiridion_asset_name "$VERSION")
-# The asset's "id" field always precedes its "name" in the release JSON, so
-# the nearest preceding id is the asset's own (nested uploader ids come
-# after the name).
-ASSET_ID=$(printf '%s' "$RELEASE_JSON" | tr ',' '\n' | sed 's/^ *//' | awk -v want="\"name\": \"$ASSET_NAME\"" '
-    /"id": *[0-9]+/ { id = $0; sub(/.*"id": */, "", id); sub(/[^0-9].*/, "", id) }
-    index($0, want) { print id; exit }
-')
-if [ -z "$ASSET_ID" ]; then
-    echo "Asset $ASSET_NAME not found in release $TAG" >&2
-    exit 1
-fi
+ASSET_NAME=$(map_enchiridion_asset_name "${TAG#v}")
+ASSET_URL="$REPO_BASE/releases/download/$TAG/$ASSET_NAME"
 
 tmp_dir=$(mktemp -d)
-download_asset "$ASSET_ID" "$tmp_dir/enchiridion.tar.gz"
+download "$ASSET_URL" "$tmp_dir/enchiridion.tar.gz"
 tar -xzf "$tmp_dir/enchiridion.tar.gz" -C "$tmp_dir"
 install -m 0755 "$tmp_dir/enchiridion" /usr/local/bin/enchiridion
 rm -rf "$tmp_dir"

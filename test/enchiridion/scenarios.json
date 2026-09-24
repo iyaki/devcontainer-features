@@ -2,16 +2,13 @@
     "default": {
         "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
         "features": {
-            "enchiridion": {
-                "github_token": "${localEnv:GITHUB_TOKEN}"
-            }
+            "enchiridion": {}
         }
     },
     "pinned": {
         "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
         "features": {
             "enchiridion": {
-                "github_token": "${localEnv:GITHUB_TOKEN}",
                 "version": "0.1.0"
             }
         }

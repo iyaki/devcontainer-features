@@ -15,36 +15,15 @@ Installs enchiridion — the Notion knowledge-base mirror CLI — from the publi
 
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
-| github_token | Optional GitHub token; only raises the API rate limit (the repository is public). Reads ${localEnv:GITHUB_TOKEN} when empty. | string | - |
 | version | enchiridion release version to install (for example: 0.1.0). Use 'latest' for the newest release. | string | latest |
 | enchiridion_home | Cache root for the mirrored knowledge base. Leave empty for the default ~/.local/share/enchiridion. | string | - |
 
 # Notes
 
 Installs `enchiridion` from the public `iyaki/enchiridion` GitHub
-Releases (no authentication required) and supports `x86_64` and `arm64`
-Linux architectures.
-
-## Authentication (optional)
-
-The repository is public: the feature installs without any token. On
-shared CI runners, anonymous GitHub API calls are rate-limited (60 per
-hour per IP); a token raises the limit. Set it through the
-`github_token` option in the consumer's `devcontainer.json`:
-
-```json
-{
-    "name": "My project",
-    "features": {
-        "ghcr.io/iyaki/devcontainer-features/enchiridion:2": {
-            "github_token": "${localEnv:GITHUB_TOKEN}"
-        }
-    }
-}
-```
-
-`GITHUB_TOKEN` / `ENCHIRIDION_TOKEN` environment variables during the
-build work too.
+Releases (no authentication required — plain release-download URLs, no
+GitHub API calls, so no rate limits on shared CI runners) and supports
+`x86_64` and `arm64` Linux architectures.
 
 ## Running the sync
 

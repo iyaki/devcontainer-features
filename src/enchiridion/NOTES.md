@@ -1,29 +1,9 @@
 # Notes
 
 Installs `enchiridion` from the public `iyaki/enchiridion` GitHub
-Releases (no authentication required) and supports `x86_64` and `arm64`
-Linux architectures.
-
-## Authentication (optional)
-
-The repository is public: the feature installs without any token. On
-shared CI runners, anonymous GitHub API calls are rate-limited (60 per
-hour per IP); a token raises the limit. Set it through the
-`github_token` option in the consumer's `devcontainer.json`:
-
-```json
-{
-    "name": "My project",
-    "features": {
-        "ghcr.io/iyaki/devcontainer-features/enchiridion:2": {
-            "github_token": "${localEnv:GITHUB_TOKEN}"
-        }
-    }
-}
-```
-
-`GITHUB_TOKEN` / `ENCHIRIDION_TOKEN` environment variables during the
-build work too.
+Releases (no authentication required — plain release-download URLs, no
+GitHub API calls, so no rate limits on shared CI runners) and supports
+`x86_64` and `arm64` Linux architectures.
 
 ## Running the sync
 
